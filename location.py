@@ -4,6 +4,7 @@ import what3words
 import json
 import config
 
+# get your key from https://developer.what3words.com/public-api
 key = config.API_KEY
 
 class Location:
@@ -31,14 +32,14 @@ class Location:
             print("Error:  request for words: " + x )
         return(body)
 
-    def get_lat_long(self):    
+    def get_lat_long(self):
         body = self.get_json()
         lng = body['coordinates']['lng']
         lat = body['coordinates']['lat']
         return(lat,lng)
 
 
-    def get_nearestplace(self):    
+    def get_nearestplace(self):
         body = self.get_json()
         np = body['nearestPlace']
         return(np)
@@ -59,10 +60,9 @@ class Location:
 
         goog_maps = (f'https://www.google.com/maps/dir/?api=1&destination={lat},{lng}')
         # https://www.google.com/maps/dir/?api=1&destination={lat},{lng}
-        return(goog_maps)    
+        return(goog_maps)
 
 
 
 # address = Location('prom','cape','pump')
 # print(address.get_json())
-
